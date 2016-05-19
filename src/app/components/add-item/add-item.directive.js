@@ -19,15 +19,14 @@
 
     function addItemController(){
       var vm = this;
-      vm.addItem = function addItem() {
+      vm.addItem = function addItem(event) {
+        event.preventDefault();
         if(vm.newItem && vm.newItem.length){
           vm.onAdd({newItem: vm.newItem});
           vm.newItem = '';
         }
       };
     }
-
-    addItemController.$inject = ['$log'];
 
     return directive;
   }
