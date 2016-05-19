@@ -1,4 +1,4 @@
-# Angular +Firebase Checklist Creator
+# Angular + Firebase Checklist Creator
 This is an angular app, backed by Firebase that creates checklists that can be stored on Firebase using Facbook or email/password login.
 
 [![Build Status](https://travis-ci.org/damien-mcmahon/portfolio-angular-checklist.svg?branch=master)](https://travis-ci.org/damien-mcmahon/portfolio-angular-checklist)
