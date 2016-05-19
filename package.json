@@ -1,6 +1,7 @@
 {
   "name": "angularChecklist",
-  "version": "0.0.0",
+  "author": "Damien McMahon",
+  "version": "0.0.1",
   "dependencies": {},
   "scripts": {
     "test": "gulp test"
