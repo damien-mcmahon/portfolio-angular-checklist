@@ -6,14 +6,26 @@
     .directive('addItem', addItem);
 
   function addItem(){
-    return {
+    var directive = {
       restrict: 'E',
       templateUrl: 'app/components/add-item/add-item.template.html',
+      scope: {
+        'onAdd': '&'
+      },
       controller: addItemController,
       controllerAs: 'vm',
       bindToController: true
     };
 
-    function addItemController(){};
+    function addItemController($log){
+      var vm = this;
+      vm.addItem = function addItem() {
+        vm.onAdd({newItem: vm.newItem});
+      };
+    }
+
+    addItemController.$inject = ['$log'];
+
+    return directive;
   }
 })();

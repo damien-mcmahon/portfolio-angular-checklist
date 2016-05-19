@@ -21,7 +21,7 @@
     });
 
     describe('With Items', function(){
-      var $scope, newEl, vm;
+      var $scope, newEl;
 
       beforeEach(inject(function($compile, _$rootScope_){
         $rootScope = _$rootScope_;

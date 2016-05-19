@@ -1,3 +1,6 @@
 <div class="add-item-component">
-  <input type="text" placeholder="Add an Item" />
+  <form ng-submit="vm.addItem()">
+    <input type="text" placeholder="Add an Item" ng-model="vm.newItem"/>
+    <button class="add-item-component--submit">Add Item</button>
+  </form>
 </div>
