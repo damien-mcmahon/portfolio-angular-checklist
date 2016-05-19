@@ -1,11 +1,11 @@
 <div class="checklist-component">
-  <div ng-if="itemsToShow()">
+  <div ng-if="vm.itemsToShow()">
     <checklist-item
-      ng-repeat="item in items track by item.id"
+      ng-repeat="item in vm.items track by item.id"
       item="item">
     </checklist-item>
   </div>
-  <div ng-if="!itemsToShow()">
+  <div ng-if="!vm.itemsToShow()">
     <h1 class="checklist-component--no-items">Let's Get Started</h1>
     <p>Add an item by entering text above!</p>
   </div>
