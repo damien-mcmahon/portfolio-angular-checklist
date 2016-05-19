@@ -4,7 +4,6 @@
 
   angular
     .module('angularChecklist')
-    .constant('malarkey', malarkey)
     .constant('moment', moment);
 
 })();

@@ -2,6 +2,14 @@
   'use strict';
 
   angular
-    .module('angularChecklist', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngMessages', 'ngAria', 'ngResource', 'ui.router', 'toastr']);
+    .module('angularChecklist', [
+      'ngAnimate',
+      'ngCookies',
+      'ngTouch',
+      'ngSanitize',
+      'ngMessages',
+      'ngResource',
+      'ui.router'
+    ]);
 
 })();
