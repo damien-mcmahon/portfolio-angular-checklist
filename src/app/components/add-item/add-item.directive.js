@@ -17,10 +17,13 @@
       bindToController: true
     };
 
-    function addItemController($log){
+    function addItemController(){
       var vm = this;
       vm.addItem = function addItem() {
-        vm.onAdd({newItem: vm.newItem});
+        if(vm.newItem && vm.newItem.length){
+          vm.onAdd({newItem: vm.newItem});
+          vm.newItem = '';
+        }
       };
     }
 

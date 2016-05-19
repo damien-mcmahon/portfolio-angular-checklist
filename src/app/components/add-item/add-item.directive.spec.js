@@ -26,5 +26,20 @@
       vm.addItem();
       expect($scope.add).toHaveBeenCalledWith('A test Item');
     });
+
+    it('clears the value when an item has been submitted', function(){
+      vm.newItem = 'Clear this Text';
+      vm.addItem();
+      expect(vm.newItem).toEqual('');
+    });
+
+    it('blocks the user from adding empty items', function(){
+      vm.addItem();
+      expect($scope.add).not.toHaveBeenCalled();
+      vm.newItem = 'Some real text';
+      vm.addItem();
+      expect($scope.add).toHaveBeenCalledWith('Some real text');
+    });
+
   });
 })();
