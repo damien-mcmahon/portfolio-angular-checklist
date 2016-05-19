@@ -7,7 +7,6 @@
 
   /** @ngInject */
   function checklist(){
-
     return {
       restrict: 'E',
       templateUrl: 'app/components/checklist/checklist.template.html',
@@ -24,7 +23,7 @@
       var vm = this;
 
       vm.itemsToShow = function itemsToShow(){
-        return vm.items.length;
+        return vm.items && vm.items.length;
       };
     }
   }
