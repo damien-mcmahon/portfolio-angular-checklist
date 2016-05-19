@@ -16,13 +16,19 @@
       controllerAs: 'vm',
       bindToController: true
     };
-
-    function addItemController(){
+    /** @ngInject */
+    function addItemController(_){
       var vm = this;
       vm.addItem = function addItem(event) {
         event.preventDefault();
         if(vm.newItem && vm.newItem.length){
-          vm.onAdd({newItem: vm.newItem});
+
+          var newChecklistItem = {
+            id: _.uniqueId('cl-'),
+            title: vm.newItem
+          };
+
+          vm.onAdd({newItem: newChecklistItem});
           vm.newItem = '';
         }
       };
