@@ -14,7 +14,7 @@
       expect(Auth).not.toBe(null);
     });
 
-    describe('createUser()', function(){
+    describe('createUser()', function() {
       it('calls $createUser with the given password and email', function(){
         var $createUser = jasmine.createSpy('$createUser');
         var createRefSpy = spyOn(Auth,'_createRef').and.returnValue({
