@@ -22,7 +22,7 @@
       function validPassword(password, passwordConfirm){
         var PASSWORD_MIN_LENGTH = 6;
 
-        if(password !== passwordConfirm) {
+        if(!password.length || password !== passwordConfirm) {
           return false;
         }
         return password.length >= PASSWORD_MIN_LENGTH;
