@@ -1,0 +1,34 @@
+<section id="signup-page">
+    <h1 class="signup--title">Sign Up</h1>
+    <p>Sign up to save and share your checklists</p>
+    <form name="signup--form">
+      <div class="form-input--wrapper">
+        <label for="user-email">Email Address:</label>
+        <input
+          type="email"
+          id="user-email"
+          name="user-email"
+          autocomplete="email"
+          ng-model="userEmail"/>
+      </div>
+      <div class="form-input--wrapper">
+        <label for="user-password">Password:</label>
+        <input
+          type="password"
+          id="user-password"
+          name="user-password"
+          ng-model="userPassword"/>
+      </div>
+      <div class="form-input--wrapper">
+        <label for="user-password-confirm">Confirm Password:</label>
+        <input
+          type="password"
+          id="user-password-confirm"
+          name="user-password-confirm"
+          ng-model="userPasswordConfirm"/>
+      </div>
+      <button
+        class="signup-form--submit"
+        ng-disabled="signup.canSubmitForm()">Sign Up</button>
+    </form>
+</section>
