@@ -21,9 +21,10 @@
         vm.userPasswordConfirm = '123456';
         expect(vm.canSubmitForm()).toBe(true);
       });
-
-      xit('requires a valid email address to be passed', function(){});
     });
 
+    xdescribe('signUpUser()', function(){
+
+    });
   });
 })();

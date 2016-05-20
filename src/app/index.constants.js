@@ -5,6 +5,6 @@
   angular
     .module('angularChecklist')
     .constant('moment', moment)
-    .constant('FIREBASE_URL', 'checklist-4abfb.firebaseio.com')
+    .constant('FIREBASE_URL', 'https://checklist-4abfb.firebaseio.com')
     .constant('_', _);
 })();
