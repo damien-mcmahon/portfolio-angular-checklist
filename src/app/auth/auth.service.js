@@ -6,7 +6,7 @@
     .factory('Auth', AuthService);
 
   /** @ngInject */
-  function AuthService($firebaseAuth, FIREBASE_URL){
+  function AuthService(firebase,$firebaseAuth){
     return {
       authRef: null,
       _createRef: createRef,
@@ -15,7 +15,7 @@
     };
 
     function createRef() {
-      var ref = new Firebase(FIREBASE_URL);
+      var ref = firebase.database().ref();
       this.authRef = $firebaseAuth(ref);
     }
 
