@@ -3,6 +3,7 @@ This is an angular app, backed by Firebase that creates checklists that can be s
 
 [![Build Status](https://travis-ci.org/damien-mcmahon/portfolio-angular-checklist.svg?branch=master)](https://travis-ci.org/damien-mcmahon/portfolio-angular-checklist)
 [![Code Climate](https://codeclimate.com/github/damien-mcmahon/portfolio-angular-checklist/badges/gpa.svg)](https://codeclimate.com/github/damien-mcmahon/portfolio-angular-checklist)
+[![Test Coverage](https://codeclimate.com/github/damien-mcmahon/portfolio-angular-checklist/badges/coverage.svg)](https://codeclimate.com/github/damien-mcmahon/portfolio-angular-checklist/coverage)
 
 ## Todo
 This is a work in progress and the following are things yet to do (brain dump, not necessarily in order):
