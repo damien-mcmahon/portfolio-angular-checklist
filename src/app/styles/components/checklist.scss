@@ -1,0 +1,10 @@
+$checklistBgColour: #F0F0F0;
+$checklistColour: #232323;
+
+.checklist-component {
+  padding: ($APP_BASE_SPACING / 2);
+  margin: $APP_BASE_SPACING;
+  background: $checklistBgColour;
+  color: $checklistColour;
+  border-radius: ($APP_BORDER_RADIUS / 2);
+}
