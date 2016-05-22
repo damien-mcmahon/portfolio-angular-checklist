@@ -1,7 +1,27 @@
+$appHeaderNavColour: #FFF;
+$appHeaderBgColour: #181818;
+$appHeaderBorderColour: rgba($bodyColour, .25);
+
 .app-header-component {
-  border-bottom: 1px solid $bodyColour;
+  padding: ($APP_BASE_SPACING / 2) $APP_BASE_SPACING;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $appHeaderBgColour;
+  margin-bottom: ($APP_BASE_SPACING);
 
   .app-header--name {
     text-transform: uppercase;
+    font-size: 1.5rem;
+  }
+
+  .app-header--nav {
+    padding: $APP_BASE_SPACING;
+
+    a {
+      color: $appHeaderNavColour;
+      display: inline-block;
+      margin: 0 ($APP_BASE_SPACING / 4);
+    }
   }
 }
