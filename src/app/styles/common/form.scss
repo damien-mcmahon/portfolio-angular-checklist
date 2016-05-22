@@ -1,5 +1,7 @@
 $formBorderColour: #CCC;
 
 input, textarea, select {
+  padding: ($APP_BASE_SPACING / 2) ($APP_BASE_SPACING / 4);
   border: 1px solid $formBorderColour;
+  border-radius: $APP_BORDER_RADIUS;
 }

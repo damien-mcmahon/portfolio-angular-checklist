@@ -3,8 +3,18 @@
 // bower:scss
 // endbower
 
+@import 'base';
+@import 'colours';
+@import 'variables';
 
-/* Do not remove the comments below. It's the markers used by gulp-inject to inject
-   all your sass files automatically */
-// injector
-// endinjector
+@import 'mixins/mq';
+
+@import 'common/form';
+@import 'common/buttons';
+
+@import 'components/app-header';
+
+body {
+  background: $bodyBgColour;
+  color: $bodyColour;
+}
