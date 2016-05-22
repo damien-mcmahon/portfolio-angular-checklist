@@ -5,4 +5,8 @@ button {
   background: none;
   color: $bodyColour;
   padding: ($APP_BASE_SPACING / 2) ($APP_BASE_SPACING / 4);
+
+  &:focus {
+    outline: none;
+  }
 }

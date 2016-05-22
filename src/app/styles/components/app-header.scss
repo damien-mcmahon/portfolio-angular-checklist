@@ -13,6 +13,7 @@ $appHeaderBorderColour: rgba($bodyColour, .25);
   .app-header--name {
     text-transform: uppercase;
     font-size: 1.5rem;
+    cursor: pointer;
   }
 
   .app-header--nav {
