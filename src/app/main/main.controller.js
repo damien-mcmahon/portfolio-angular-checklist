@@ -15,8 +15,7 @@
     };
 
     vm.removeItemFromList = function removeItemFromList(itemId) {
-      var removeIndex = _.findIndex(vm.items, ['id', itemId]);
-
+      var removeIndex = _.findIndex(vm.items.toJS(), ['id', itemId]);
       if(removeIndex >= 0) {
         vm.items = vm.items.splice(removeIndex, 1);
       }

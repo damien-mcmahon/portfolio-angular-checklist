@@ -22,7 +22,8 @@ function listFiles() {
       path.join(conf.paths.src, '/app/**/*.js'),
       path.join(conf.paths.src, '/**/*.spec.js'),
       path.join(conf.paths.src, '/**/*.mock.js'),
-      "utils/test-helpers/compile.js"
+      "utils/test-helpers/compile.js",
+      "utils/test-helpers/mockImmutable.js"
     ])
     .concat(pathSrcHtml);
 
