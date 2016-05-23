@@ -19,17 +19,25 @@
     /** @ngInject */
     function addItemController(_){
       var vm = this;
+
+      vm.hasCorrectContent = function hasCorrectContent(){
+        return vm.newItemTitle && vm.newItemTitle.length &&
+          vm.newItemDescription && vm.newItemDescription.length;
+      };
+
       vm.addItem = function addItem(event) {
         event.preventDefault();
-        if(vm.newItem && vm.newItem.length){
+        if(vm.hasCorrectContent()){
 
           var newChecklistItem = {
             id: _.uniqueId('cl-'),
-            title: vm.newItem
+            title: vm.newItemTitle,
+            description: vm.newItemDescription
           };
 
           vm.onAdd({newItem: newChecklistItem});
-          vm.newItem = '';
+          vm.newItemTitle = '';
+          vm.newItemDescription = '';
         }
       };
     }
