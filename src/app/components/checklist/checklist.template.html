@@ -2,7 +2,8 @@
   <div ng-if="vm.itemsToShow()">
     <checklist-item
       ng-repeat="item in vm.items track by item.id"
-      item="item">
+      item="item"
+      on-complete="vm.completeItem(itemId)">
     </checklist-item>
   </div>
   <div ng-if="!vm.itemsToShow()">

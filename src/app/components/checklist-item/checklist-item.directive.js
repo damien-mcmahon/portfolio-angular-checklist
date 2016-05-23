@@ -11,7 +11,8 @@
       restrict: 'E',
       templateUrl: 'app/components/checklist-item/checklist-item.template.html',
       scope: {
-        item: '='
+        item: '=',
+        onComplete: '&'
       },
       controller: checklistItemController,
       controllerAs: 'vm',
@@ -19,6 +20,15 @@
     };
 
     /** @ngInject */
-    function checklistItemController(){}
+    function checklistItemController(){
+      var vm = this;
+      vm.completeItem = function completeItem(){
+
+      };
+
+      vm.$onChanges = function(){
+        //@TODO Add the Codez
+      };
+    }
   }
 })();

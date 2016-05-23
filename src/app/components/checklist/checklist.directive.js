@@ -11,7 +11,7 @@
       restrict: 'E',
       templateUrl: 'app/components/checklist/checklist.template.html',
       scope: {
-        items: '='
+        items: '<'
       },
       controller: checklistController,
       controllerAs: 'vm',
@@ -31,6 +31,19 @@
             item.isActive = index === FIRST_ITEM;
             return item;
           });
+        }
+      };
+
+      vm.$onChanges = function onChanges(changes){
+        if(changes.items.currentValue !== changes.items.previousValue) {
+          var theChanges = changes.items.currentValue;
+
+          if(theChanges.length){
+            theChanges.map(function(item, index) {
+              item.isActive = index === FIRST_ITEM;
+              return item;
+            });
+          }
         }
       };
 

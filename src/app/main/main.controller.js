@@ -6,19 +6,19 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController(_) {
+  function MainController(_, Immutable) {
     var vm = this;
-    vm.items = [];
+    vm.items = Immutable.List();
 
     vm.addItemToList = function addItemToList(newItem) {
-      vm.items.push(newItem);
+      vm.items = vm.items.push(newItem);
     };
 
     vm.removeItemFromList = function removeItemFromList(itemId) {
       var removeIndex = _.findIndex(vm.items, ['id', itemId]);
 
       if(removeIndex >= 0) {
-        vm.items.splice(removeIndex, 1);
+        vm.items = vm.items.splice(removeIndex, 1);
       }
     };
   }

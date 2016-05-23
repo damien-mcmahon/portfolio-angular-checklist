@@ -9,7 +9,8 @@
       'ngSanitize',
       'ngMessages',
       'ui.router',
-      'firebase'
+      'firebase',
+      'mutable'
     ]);
 
 })();
