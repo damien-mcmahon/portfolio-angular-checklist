@@ -76,8 +76,14 @@
         expect(vm.completedList).toHaveBeenCalled();
       });
 
-      xit('sets the correct item enabled when uncompleting an item', function(){
-
+      it('sets the correct item enabled when uncompleting an item', function(){
+        var isComplete = true;
+        vm.completeItem(itemsToDisplay[0].id, isComplete);
+        vm.completeItem(itemsToDisplay[1].id, isComplete);
+        isComplete = false;
+        expect(itemsToDisplay[2].isComplete).not.toBe(false);
+        vm.completeItem(itemsToDisplay[1].id, isComplete);
+        expect(itemsToDisplay[2].isComplete).toBe(false);
       });
 
     });
