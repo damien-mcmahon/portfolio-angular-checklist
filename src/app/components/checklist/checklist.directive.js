@@ -17,14 +17,50 @@
       controllerAs: 'vm',
       bindToController: true
     };
-
     /** @ngInject */
-    function checklistController() {
+    function checklistController(_) {
       var vm = this;
-
+      var FIRST_ITEM = 0;
       vm.itemsToShow = function itemsToShow(){
         return vm.items && vm.items.length;
       };
+
+      vm.$onInit = function(){
+        if(vm.items && vm.items.length) {
+          vm.items.map(function(item, index) {
+            item.isActive = index === FIRST_ITEM;
+            return item;
+          });
+        }
+      };
+
+      vm.completeItem = function completeItem(itemId){
+        var itemToComplete = _.findIndex(vm.items, ['id', itemId]);
+        var nextItem = getNextItem(itemToComplete);
+
+        if(itemToComplete >= 0){
+          completeItem(itemToComplete);
+        }
+
+        if(nextItem) {
+          nextItem.isActive = true;
+        } else {
+          vm.completedList();
+        }
+      };
+
+      vm.completedList = function completedList(){
+        //TODOE: Add a method to pass to parent
+      };
+
+      function getNextItem(index) {
+        return index + 1 < vm.items.length ? vm.items[index + 1] : null ;
+      }
+
+      function completeItem(index) {
+        vm.items[index].isComplete = true;
+        vm.items[index].isActive = false;
+      }
     }
   }
 })();

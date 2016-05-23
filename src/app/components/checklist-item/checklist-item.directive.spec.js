@@ -48,6 +48,13 @@
           .toEqual('First Element Description');
       });
 
+      it('sets the active class on the current active element', function(){
+        var firstEl = compileHelpers.wrapElement(newEl.find('div')[0]);
+        expect(
+          firstEl.hasClass('checklist-item-component__is-active')
+        ).toBe(true);
+      });
+
       describe('the checkbox', function(){
         var checkboxEl;
 

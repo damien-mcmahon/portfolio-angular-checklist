@@ -20,5 +20,65 @@
       var getStartedEl = el.find('h1');
       expect(getStartedEl.text()).toEqual('Let\'s Get Started');
     });
+
+
+    describe('with items to display', function(){
+      var itemsToDisplay, elWithItems, $scope, compileHelpers, vm;
+
+      beforeEach(inject(function($compile, $rootScope, _compileHelpers_){
+        itemsToDisplay = [{
+          id: 'cl-1',
+          title: 'Item one',
+          description: 'This item is first'
+        },{
+          id: 'cl-2',
+          title: 'Item two',
+          description: 'This item is second'
+        },{
+          id: 'cl-3',
+          title: 'Item three',
+          description: 'This item is last'
+        }];
+        compileHelpers = _compileHelpers_;
+        $scope = $rootScope.$new();
+        $scope.items = itemsToDisplay;
+        var elMarkup = '<checklist items="items"></checklist>';
+        elWithItems = compileHelpers.wrapElement(elMarkup);
+        compileHelpers.compile(elWithItems, $scope);
+        vm = elWithItems.isolateScope().vm;
+      }));
+
+      it('sets the first item as enabled', function(){
+        var firstEl = compileHelpers.wrapElement(elWithItems.find('input')[0]);
+        expect(firstEl.prop('disabled')).toBe(false);
+      });
+
+      it('disables items after the first', function(){
+        var secondEl = compileHelpers.wrapElement(elWithItems.find('input')[1]);
+        expect(secondEl.prop('disabled')).toBe(true);
+      });
+
+      it('enables only the second item when the first completes', function(){
+        var secondEl = compileHelpers.wrapElement(elWithItems.find('input')[1]);
+        expect(secondEl.prop('disabled')).toBe(true);
+
+        vm.completeItem(itemsToDisplay[0].id);
+        $scope.$apply();
+        expect(secondEl.prop('disabled')).toBe(false);
+      });
+
+      it('sets the list complete when all are ticked', function(){
+        spyOn(vm,'completedList');
+        vm.completeItem(itemsToDisplay[0].id);
+        vm.completeItem(itemsToDisplay[1].id);
+        vm.completeItem(itemsToDisplay[2].id);
+        expect(vm.completedList).toHaveBeenCalled();
+      });
+
+      xit('sets the correct item enabled when uncompleting an item', function(){
+
+      });
+
+    });
   });
 })();
