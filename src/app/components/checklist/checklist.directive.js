@@ -38,7 +38,7 @@
         if(changes.items.currentValue !== changes.items.previousValue) {
           var theChanges = changes.items.currentValue;
 
-          if(theChanges.length){
+          if(theChanges && theChanges.length){
             theChanges.map(function(item, index) {
               item.isActive = index === FIRST_ITEM;
               return item;
