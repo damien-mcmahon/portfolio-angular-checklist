@@ -13,7 +13,8 @@
       databaseURL: FIREBASE_DATABASE_URL
     };
 
-    firebase.initializeApp(config);
+    // @TODO: Come back to this when angFire is using v3...
+    // firebase.initializeApp(config);
 
     $log.debug('runBlock end');
   }
