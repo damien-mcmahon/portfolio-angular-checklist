@@ -47,19 +47,25 @@
         }
       };
 
-      vm.completeItem = function completeItem(itemId){
+      vm.completeItem = function completeItem(itemId, isComplete){
         var itemToComplete = _.findIndex(vm.items, ['id', itemId]);
-        var nextItem = getNextItem(itemToComplete);
 
         if(itemToComplete >= 0){
-          completeItem(itemToComplete);
+          var nextItem = getNextItem(itemToComplete);
+          if(isComplete){
+            completeItem(itemToComplete);
+
+            if(nextItem) {
+              nextItem.isActive = true;
+            } else {
+              vm.completedList();
+            }
+          } else {
+            //handle uncompleting things...
+          }
+
         }
 
-        if(nextItem) {
-          nextItem.isActive = true;
-        } else {
-          vm.completedList();
-        }
       };
 
       vm.completedList = function completedList(){

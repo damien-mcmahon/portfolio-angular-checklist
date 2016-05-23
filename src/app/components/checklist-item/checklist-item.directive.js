@@ -22,12 +22,9 @@
     /** @ngInject */
     function checklistItemController(){
       var vm = this;
-      vm.completeItem = function completeItem(){
 
-      };
-
-      vm.$onChanges = function(){
-        //@TODO Add the Codez
+      vm.completeItem = function completeItem() {
+        vm.onComplete({itemId: vm.item.id, isComplete: vm.item.isComplete});
       };
     }
   }

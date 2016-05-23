@@ -62,16 +62,17 @@
         var secondEl = compileHelpers.wrapElement(elWithItems.find('input')[1]);
         expect(secondEl.prop('disabled')).toBe(true);
 
-        vm.completeItem(itemsToDisplay[0].id);
+        vm.completeItem(itemsToDisplay[0].id, true);
         $scope.$apply();
         expect(secondEl.prop('disabled')).toBe(false);
       });
 
       it('sets the list complete when all are ticked', function(){
         spyOn(vm,'completedList');
-        vm.completeItem(itemsToDisplay[0].id);
-        vm.completeItem(itemsToDisplay[1].id);
-        vm.completeItem(itemsToDisplay[2].id);
+        var isComplete = true;
+        vm.completeItem(itemsToDisplay[0].id, isComplete);
+        vm.completeItem(itemsToDisplay[1].id, isComplete);
+        vm.completeItem(itemsToDisplay[2].id, isComplete);
         expect(vm.completedList).toHaveBeenCalled();
       });
 

@@ -23,8 +23,7 @@
     describe('With Items', function(){
       var $scope, newEl;
 
-      beforeEach(inject(function($compile, _$rootScope_){
-        $rootScope = _$rootScope_;
+      beforeEach(inject(function($compile, $rootScope){
         $scope = $rootScope.$new();
         $scope.mockItem = {
           title: "First Element",
@@ -36,14 +35,12 @@
         compileHelpers.compile(newEl, $scope);
       }));
 
-      it('renders the title', function(){
+      it('renders the title, and description', function(){
         var firstEl = compileHelpers.wrapElement(newEl.find('h1')[0]);
-        expect(firstEl.text().trim()).toEqual('First Element');
-      });
-
-      it('renders the description', function(){
         var firstDescription = compileHelpers.wrapElement(newEl.find('p')[0]);
 
+        expect(firstEl.text().trim())
+          .toEqual('First Element');
         expect(firstDescription.text().trim())
           .toEqual('First Element Description');
       });
@@ -80,6 +77,30 @@
           $scope.mockItem.isComplete = true;
           $scope.$digest();
           expect(checkboxEl.prop('checked')).not.toBe(false);
+        });
+      });
+
+      describe('onComplete()', function() {
+        var elToComplete, vm;
+
+        beforeEach(inject(function($rootScope, compileHelpers){
+          $scope = $rootScope.$new();
+          $scope.mockItem = {
+            title: "Element To Complete",
+            "description": "Complete this element",
+            "isActive": true,
+            id: 'cl-1'
+          };
+          $scope.handleComplete = jasmine.createSpy('handleComplete');
+          var elMarkup = '<checklist-item item="mockItem" on-complete="handleComplete(itemId)"></checklist-item>';
+          elToComplete = compileHelpers.wrapElement(elMarkup);
+          compileHelpers.compile(elToComplete, $scope);
+          vm = elToComplete.isolateScope().vm;
+        }));
+
+        it('sends the itemID to the parent function', function(){
+          vm.completeItem();
+          expect($scope.handleComplete).toHaveBeenCalledWith('cl-1');
         });
       });
     });
