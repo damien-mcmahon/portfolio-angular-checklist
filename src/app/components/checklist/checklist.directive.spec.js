@@ -86,6 +86,15 @@
         expect(itemsToDisplay[2].isComplete).toBe(false);
       });
 
+      it('enables uncompleting of an item at any time', function(){
+        var isComplete = true;
+        vm.completeItem(itemsToDisplay[0].id, isComplete);
+        vm.completeItem(itemsToDisplay[1].id, isComplete);
+        isComplete = false;
+        vm.completeItem(itemsToDisplay[0].id, isComplete);
+        expect(itemsToDisplay[0].isActive).toBe(true);
+      });
+
     });
   });
 })();

@@ -86,7 +86,6 @@
 
       function completeItemAtIndex(index) {
         vm.items[index].isComplete = true;
-        vm.items[index].isActive = false;
         vm.currentCompletedItem = index;
       }
 
