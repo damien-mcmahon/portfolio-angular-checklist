@@ -1,10 +1,25 @@
 <div class="add-item-component">
   <form ng-submit="vm.addItem($event)">
-    <input type="text" placeholder="Add an Item" ng-model="vm.newItemTitle"/>
-    <textarea
-      class="add-item-component--description"
-      ng-model="vm.newItemDescription">
-    </textarea>
-    <button class="add-item-component--submit">Add Item</button>
+    <div class="form-input--wrapper">
+      <label for="add-item--title">Item Title</label>
+      <input
+        type="text"
+        id="add-item--title"
+        placeholder="Item Title"
+        name="add-item--title"
+        class="add-item--title"
+        ng-model="vm.newItemTitle" />
+    </div>
+    <div class="form-input--wrapper">
+      <label for="add-item--description">Description</label>
+      <textarea
+        id="add-item--description"
+        name="add-item--description"
+        class="add-item--description"
+        ng-model="vm.newItemDescription"
+        placeholder="Add the description of the item">
+      </textarea>
+    </div>
+    <button class="button add-item-component--submit">Add Item</button>
   </form>
 </div>

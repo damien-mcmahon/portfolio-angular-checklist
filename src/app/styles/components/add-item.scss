@@ -1,0 +1,32 @@
+$addItemBgColour: #000;
+
+.add-item-component {
+  padding: $APP_BASE_SPACING 0;
+  background: $addItemBgColour;
+
+  label {
+    display: none;
+  }
+
+  @include mq($APP_PHABLET_BREAKPOINT) {
+    label {
+      display: block;
+    }
+  }
+
+  .form-input--wrapper {
+    width: 100%;
+    padding: 0;
+  }
+
+  .add-item--title,
+  .add-item--description {
+    width: 95%;
+    margin: ($APP_BASE_SPACING / 4) $APP_BASE_SPACING;
+  }
+
+  .button {
+    width: 95%;
+    margin: ($APP_BASE_SPACING / 2);
+  }
+}

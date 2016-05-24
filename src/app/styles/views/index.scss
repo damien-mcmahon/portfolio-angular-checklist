@@ -1,3 +1,16 @@
 #index-page {
   text-align: center;
+
+  .add-item-component {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    //@TODO: Think about position on desktop size screens
+    @include mq($APP_TABLET_BREAKPOINT) {
+      position: static;
+      bottom: auto;
+      width: auto;
+    }
+  }
 }
