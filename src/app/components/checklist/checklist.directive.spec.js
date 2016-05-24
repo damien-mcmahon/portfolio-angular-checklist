@@ -29,15 +29,18 @@
         itemsToDisplay = [{
           id: 'cl-1',
           title: 'Item one',
-          description: 'This item is first'
+          description: 'This item is first',
+          isComplete: false
         },{
           id: 'cl-2',
           title: 'Item two',
-          description: 'This item is second'
+          description: 'This item is second',
+          isComplete: false
         },{
           id: 'cl-3',
           title: 'Item three',
-          description: 'This item is last'
+          description: 'This item is last',
+          isComplete: false
         }];
         compileHelpers = _compileHelpers_;
         $scope = $rootScope.$new();
@@ -80,10 +83,10 @@
         var isComplete = true;
         vm.completeItem(itemsToDisplay[0].id, isComplete);
         vm.completeItem(itemsToDisplay[1].id, isComplete);
+        expect(itemsToDisplay[1].isComplete).not.toBe(false);
         isComplete = false;
-        expect(itemsToDisplay[2].isComplete).not.toBe(false);
         vm.completeItem(itemsToDisplay[1].id, isComplete);
-        expect(itemsToDisplay[2].isComplete).toBe(false);
+        expect(itemsToDisplay[1].isComplete).toBe(false);
       });
 
       it('enables uncompleting of an item at any time', function(){

@@ -54,7 +54,7 @@
         if(itemToComplete >= 0){
           if(isComplete){
             var nextItem = getNextItem(itemToComplete);
-            completeItemAtIndex(itemToComplete);
+            setItemAtIndex(itemToComplete, isComplete);
 
             if(nextItem) {
               nextItem.isActive = true;
@@ -71,7 +71,7 @@
                 item.isComplete = false;
                 return item;
               });
-            vm.currentCompletedItem = previousItemIndex(itemToComplete);
+            setItemAtIndex(itemToComplete, isComplete);
           }
         }
       };
@@ -84,8 +84,8 @@
         return index + 1 < vm.items.length ? vm.items[index + 1] : null ;
       }
 
-      function completeItemAtIndex(index) {
-        vm.items[index].isComplete = true;
+      function setItemAtIndex(index, isComplete) {
+        vm.items[index].isComplete = isComplete;
         vm.currentCompletedItem = index;
       }
 
