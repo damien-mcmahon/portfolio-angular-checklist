@@ -26,6 +26,14 @@
       vm.completeItem = function completeItem() {
         vm.onComplete({itemId: vm.item.id, isComplete: vm.item.isComplete});
       };
+
+      vm.itemIsActive = function itemIsActive(){
+        return !!vm.item && vm.item.isActive && !vm.item.isComplete;
+      };
+
+      vm.itemIsComplete = function itemIsComplete() {
+        return !!vm.item && vm.item.isComplete;
+      };
     }
   }
 })();
