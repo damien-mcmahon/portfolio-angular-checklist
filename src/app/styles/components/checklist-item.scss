@@ -1,0 +1,53 @@
+$checklistItemTitleBg: #CCC!default;
+$checklistItemTitleColour: #FFF!default;
+$checklistItemTitleFontSize: 1.5rem!default;
+$checklistItemBodyFontSize: 1.2rem!default;
+$checklistItemDefaultOpacity: .25;
+$checklistItemActiveOpacity: 1;
+$checklistItemCompleteOpacity: .75;
+
+
+.checklist-item-component {
+  display: flex;
+  border-bottom: 1px solid $checklistItemTitleBg;
+  margin-top: ($APP_BASE_SPACING / 4);
+  opacity: $checklistItemDefaultOpacity;
+
+  &.checklist-item-component__is-active {
+    opacity: $checklistItemActiveOpacity;
+  }
+  &.checklist-item-component__is-complete {
+    opacity: $checklistItemCompleteOpacity;
+  }
+
+
+  .checklist-item--content-wrapper {
+    flex: 8;
+    display: inline-flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
+  .checklist-item--actions-wrapper {
+    display: inline-flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .checklist-item--title {
+    padding: ($APP_BASE_SPACING / 8) ($APP_BASE_SPACING / 4);
+    margin: 0;
+    font-size: $checklistItemTitleFontSize;
+    background-color: $checklistItemTitleBg;
+    color: $checklistItemTitleColour;
+    line-height: 1.5;
+  }
+
+  .checklist-item--description {
+    padding: ($APP_BASE_SPACING / 8) ($APP_BASE_SPACING / 4);
+    margin: 0;
+    font-size: $checklistItemBodyFontSize;
+    line-height: 1.5;
+  }
+}
