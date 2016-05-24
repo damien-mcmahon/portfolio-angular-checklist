@@ -88,10 +88,6 @@
         vm.items[index].isComplete = isComplete;
         vm.currentCompletedItem = index;
       }
-
-      function previousItemIndex(index) {
-        return index - 1  >= 0 ? index - 1 : 0;
-      }
     }
   }
 })();
